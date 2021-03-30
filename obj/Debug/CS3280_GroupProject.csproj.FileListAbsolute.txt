@@ -3,7 +3,6 @@ C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\bin\Debug\CS3280_GroupProject.
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\bin\Debug\CS3280_GroupProject.exe
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\bin\Debug\CS3280_GroupProject.pdb
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\CS3280_GroupProject.csprojAssemblyReference.cache
-C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\ExpressionDark.baml
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\Main\wndMain.g.cs
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\Search\wndSearch.g.cs
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\App.g.cs
@@ -19,3 +18,4 @@ C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\CS3280_GroupProject.
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\CS3280_GroupProject.csproj.CoreCompileInputs.cache
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\CS3280_GroupProject.exe
 C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\CS3280_GroupProject.pdb
+C:\Users\randi\Desktop\CS3280\CS3280_GroupProject\obj\Debug\WhistlerBlue.baml
