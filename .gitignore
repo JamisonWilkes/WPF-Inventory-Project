@@ -1,0 +1,11 @@
+Invoice.mdb
+Invoice.ldb
+.vs
+.vs/*
+bin/Debug
+bin/Debug/*
+bin/Release
+bin
+obj
+obj/Debug
+obj/Debug/*
