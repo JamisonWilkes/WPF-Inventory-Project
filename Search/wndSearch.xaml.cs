@@ -23,11 +23,6 @@ namespace CS3280_GroupProject.Search
     {
         #region Attributes
         /// <summary>
-        /// Integer variable to hold the IntegerID of the selected invoice that is passed to the Main Window.
-        /// </summary>
-        private int iSelectedInvoice;
-
-        /// <summary>
         /// clsSearchLogic variable to hold the instantiation of the clsSearchLogic class.
         /// </summary>
         private clsSearchLogic clsSearchLogicObj;
