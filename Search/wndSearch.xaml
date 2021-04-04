@@ -18,9 +18,9 @@
             </Grid.ColumnDefinitions>
             <DataGrid x:Name="dgInvoices" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="225" VerticalAlignment="Bottom" Width="300" FontSize="14" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Invoice Number" Binding="{Binding Path=sInvoiceID}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=sInvoiceDate}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Invoice Total" Binding="{Binding Path=sInvoiceTotal}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Invoice Number" Binding="{Binding Path=iInvoiceNum}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=dtInvoiceDate}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Invoice Total" Binding="{Binding Path=dTotalCost}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <Label x:Name="lblInvoicesDG" Content="Invoices" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="156,46,142,0" FontWeight="Bold" Width="98"/>
