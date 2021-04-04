@@ -9,3 +9,5 @@ bin
 obj
 obj/Debug
 obj/Debug/*
+obj/Debug/Search
+obj/Debug/Search/*

@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CS3280_GroupProject.Search"
         mc:Ignorable="d"
-        Title="Search" Height="450" Width="800">
+        Title="Search" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="dgInvoices" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="225" VerticalAlignment="Bottom" Width="300" FontSize="14" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Invoice Number" Binding="{Binding Path=sInvoiceID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=sInvoiceDate}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Invoice Total" Binding="{Binding Path=sInvoiceTotal}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="lblInvoicesDG" Content="Invoices" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="156,46,142,0" FontWeight="Bold" Width="98"/>
+            <ComboBox x:Name="cboInvoiceID" Grid.Column="1" HorizontalAlignment="Center" Margin="202,125,59,0" VerticalAlignment="Top" Width="135" FontSize="14" SelectionChanged="cboInvoiceID_SelectionChanged"/>
+            <Label x:Name="lblInvoiceID" Content="Invoice Number:" Grid.Column="1" HorizontalAlignment="Left" Margin="72,125,0,0" VerticalAlignment="Top" FontSize="14" Width="113" Height="25" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+            <Label x:Name="lblFilterBy" Content="Filter By:" Grid.Column="1" HorizontalAlignment="Center" Margin="163,88,163,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+            <ComboBox x:Name="cboInvoiceDate" Grid.Column="1" HorizontalAlignment="Center" Margin="202,166,59,0" VerticalAlignment="Top" Width="135" FontSize="14" SelectionChanged="cboInvoiceDate_SelectionChanged"/>
+            <Label x:Name="lblInvoiceDate" Content="Invoice Date:" Grid.Column="1" HorizontalAlignment="Left" Margin="72,166,0,0" VerticalAlignment="Top" FontSize="14" Width="113" Height="25" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+            <ComboBox x:Name="cboInvoiceTotal" Grid.Column="1" HorizontalAlignment="Center" Margin="202,208,59,0" VerticalAlignment="Top" Width="135" FontSize="14" SelectionChanged="cboInvoiceTotal_SelectionChanged"/>
+            <Label x:Name="lblInvoiceTotal" Content="Invoice Total:" Grid.Column="1" HorizontalAlignment="Left" Margin="72,208,0,0" VerticalAlignment="Top" FontSize="14" Width="113" Height="25" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+            <Button x:Name="btnClear" Content="Clear" Grid.Column="1" HorizontalAlignment="Left" Margin="261,250,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="btnClear_Click"/>
+        </Grid>
+        <Button x:Name="btnSelectInvoice" Content="Select" HorizontalAlignment="Left" Margin="50,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" FontSize="14" Click="btnSelectInvoice_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="272,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" FontSize="14" IsCancel="True" Click="btnCancel_Click"/>
+
     </Grid>
 </Window>
