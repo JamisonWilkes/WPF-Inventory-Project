@@ -20,9 +20,18 @@ namespace CS3280_GroupProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        Search.Search searchWindow;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            searchWindow = new Search.Search();
+            searchWindow.ShowDialog();
+
         }
     }
 }
