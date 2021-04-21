@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace CS3280_GroupProject.Main
 {
     class clsMainSQL
     {
+        clsDataAccess db = new clsDataAccess();
+
         /// <summary>
         /// This SQL gets all data on an invoice for a given InvoiceID.
         /// </summary>
@@ -26,7 +29,8 @@ namespace CS3280_GroupProject.Main
         /// <returns></returns>
         public string SelectItemsData()
         {
-            string sSQL = "SELECT * FROM ItemDesc";
+
+            string sSQL = "SELECT ItemCode, ItemDesc, Cost FROM ItemDesc";
             return sSQL;
         }
 

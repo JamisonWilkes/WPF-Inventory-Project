@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -14,12 +16,12 @@ namespace CS3280_GroupProject.Main
         /// <summary>
         /// Data Access variable used to access the database
         /// </summary>
-        private clsDataAccess db;
+        private clsDataAccess db = new clsDataAccess();
 
         /// <summary>
         /// clsSearchSQL variable to hold the instantiation of the clsSearchSQL class.
         /// </summary>
-        private clsMainSQL clsMainSQLObj;
+        private clsMainSQL clsMainSQL;
 
         /// <summary>
         /// DataSet variable used to store the set of invoices returned from the database.
@@ -54,7 +56,8 @@ namespace CS3280_GroupProject.Main
         /// <summary>
         /// List of clsInvoice objects to store and interact with the list of invoices returned from the database.
         /// </summary>
-        public BindingList<clsInvoice> lstInvoiceList;
+
+        public ObservableCollection<clsItemDesc> ItemDescriptionList { get; set; }
 
 
         #endregion
@@ -62,13 +65,26 @@ namespace CS3280_GroupProject.Main
         #region Methods
 
         /// <summary>
-        /// Method to retrieve a list of invoices from the database for use in the dgInvoices data grid.
+        /// Method to retrieve a list of Items from the database for use in the dgItems data grid.
         /// </summary>
-        public BindingList<clsInvoice> GetInvoices()
+        public ObservableCollection<clsItemDesc> GetItemDescs()
         {
             try
             {
-                return lstInvoiceList;
+                int iRet = 0;
+                DataSet ds = new DataSet();
+                clsMainSQL = new clsMainSQL();
+                ds = db.ExecuteSQLStatement(clsMainSQL.SelectItemsData(), ref iRet);
+                ItemDescriptionList = new ObservableCollection<clsItemDesc>() ;
+                for (int i = 0; i < iRet; i++)
+                {
+                    ItemDescriptionList.Add(
+                    new clsItemDesc
+                    { sItemCode = ds.Tables[0].Rows[i]["ItemCode"].ToString(), sItemDesc = ds.Tables[0].Rows[i]["ItemDesc"].ToString(), dCost = (decimal)ds.Tables[0].Rows[i]["Cost"]}
+                    );
+                }
+
+                return ItemDescriptionList;
             }
             catch (Exception ex)
             {

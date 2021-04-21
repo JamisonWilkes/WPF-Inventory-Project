@@ -12,26 +12,34 @@ namespace CS3280_GroupProject
         /// <summary>
         /// String variable to store the item code.
         /// </summary>
-        private string sItemCode;
+        //public string sItemCode;
 
-        /// <summary>
-        /// String variable to store the item description.
-        /// </summary>
-        private string sItemDesc;
+        ///// <summary>
+        ///// String variable to store the item description.
+        ///// </summary>
+        //public string sItemDesc;
 
-        /// <summary>
-        /// Decimal variable to store the item cost.
-        /// </summary>
-        private decimal dCost;
+        ///// <summary>
+        ///// Decimal variable to store the item cost.
+        ///// </summary>
+        //public decimal dCost;
         #endregion
 
-        #region Properties
-        public string SItemCode { get; set; }
-        public string SItemDesc { get; set; }
-        public decimal DCost { get; set; }
+        #region properties
+        public string sItemCode { get; set; }
+        public string sItemDesc { get; set; }
+        public decimal dCost { get; set; }
         #endregion
 
         #region Methods
+        /// <summary>
+        /// The Tostring method has been overridden to show that this is the default method that is called when controls are bound to collections.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return sItemCode + ": " + sItemDesc + " " + "$" + dCost.ToString();
+        }
         #endregion
     }
 }
