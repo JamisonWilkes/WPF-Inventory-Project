@@ -29,29 +29,19 @@ namespace CS3280_GroupProject.Main
         private InvoiceDataSet dsInvoices;
 
         /// <summary>
-        /// DataSet variable used to store the set of distinct invoice dates returned from the database.
+        /// Integer variable used to store the invoice Num
         /// </summary>
-        private InvoiceDataSet dsInvoiceDates;
+        public string sInvoiceNum;
 
         /// <summary>
-        /// DataSet variable used to store the set of distinct invoice totals returned from the database.
+        /// Integer variable used to store the number invoice date.
         /// </summary>
-        private InvoiceDataSet dsInvoiceTotals;
+        public string sInvoiceDate;
 
         /// <summary>
-        /// Integer variable used to store the number of invoices returned from the database.
+        /// Integer variable used to store the total cost of the invoice.
         /// </summary>
-        private int iInvoiceRet = 0;
-
-        /// <summary>
-        /// Integer variable used to store the number of invoice dates returned from the database.
-        /// </summary>
-        private int iDatesRet = 0;
-
-        /// <summary>
-        /// Integer variable used to store the number of invoice totals returned from the database.
-        /// </summary>
-        private int iTotalsRet = 0;
+        public string sTotalCost;
 
         /// <summary>
         /// List of clsInvoice objects to store and interact with the list of invoices returned from the database.
@@ -59,11 +49,41 @@ namespace CS3280_GroupProject.Main
 
         public ObservableCollection<clsItemDesc> ItemDescriptionList { get; set; }
 
+        public ObservableCollection<clsInvoice> InvoiceList { get; set; }
 
         #endregion
 
         #region Methods
 
+        public ObservableCollection<clsInvoice> getAllInvoices()
+        {
+            try
+            {
+                int iRet = 0;
+                DataSet ds = new DataSet();
+                clsMainSQL = new clsMainSQL();
+
+                ds = db.ExecuteSQLStatement(clsMainSQL.getInvoices(), ref iRet);
+
+                InvoiceList = new ObservableCollection<clsInvoice>();
+
+                for (int i = 0; i < iRet; i++)
+                {
+                    InvoiceList.Add(
+                    new clsInvoice
+                    { SInvoiceNum = ds.Tables[0].Rows[i]["InvoiceNum"].ToString(), SInvoiceDate = ds.Tables[0].Rows[i]["InvoiceDate"].ToString(), STotalCost = ds.Tables[0].Rows[i]["TotalCost"].ToString()}
+                    );
+                }
+
+                return InvoiceList;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." +
+                                    MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
+        }
         /// <summary>
         /// Method to retrieve a list of Items from the database for use in the dgItems data grid.
         /// </summary>
@@ -101,7 +121,8 @@ namespace CS3280_GroupProject.Main
         {
             try
             {
-
+                string sSQL = clsMainSQL.InsertInvoice(sInvoiceDate, sTotalCost);
+                db.ExecuteNonQuery(sSQL);
             }
             catch (Exception ex)
             {
@@ -128,7 +149,23 @@ namespace CS3280_GroupProject.Main
             }
         }
 
+        /// <summary>
+        /// Method to get the newest invoice number from the database
+        /// </summary>
+        public string getNewestInvoiceNum()
+        {
+            try
+            {
+                sInvoiceNum = db.ExecuteScalarSQL(clsMainSQL.getNewestInvoice());
+                return sInvoiceNum;
+            }
+            catch (Exception ex)
+            {
 
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." +
+                                    MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
+        }
 
         #endregion
 

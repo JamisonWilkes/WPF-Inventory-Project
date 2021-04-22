@@ -12,23 +12,23 @@ namespace CS3280_GroupProject
         /// <summary>
         /// Integer variable to store the invoice number.
         /// </summary>
-        private int iInvoiceNum;
+        private string sInvoiceNum;
 
         /// <summary>
         /// DateTime variable to store the invoice date;
         /// </summary>
-        private DateTime dtInvoiceDate;
+        private DateTime sInvoiceDate;
 
         /// <summary>
         /// Decimal variable to store the invoice cost;
         /// </summary>
-        private decimal dTotalCost;
+        private decimal sTotalCost;
         #endregion
 
         #region Properties
-        public int IInvoiceNum { get; set; }
-        public DateTime DTInvoiceDate { get; set; }
-        public decimal DTotalCost { get; set; }
+        public string SInvoiceNum { get; set; }
+        public string SInvoiceDate { get; set; }
+        public string STotalCost { get; set; }
         #endregion
 
         #region Methods

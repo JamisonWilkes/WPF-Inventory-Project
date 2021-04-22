@@ -42,6 +42,7 @@ namespace CS3280_GroupProject
         /// </summary>
         ObservableCollection<clsItemDesc> ChosenItemsList;
 
+        public decimal dTotalCost = 0;
 
         public MainWindow()
         {
@@ -52,6 +53,8 @@ namespace CS3280_GroupProject
             cbItemDesc.ItemsSource = clsMainLogic.GetItemDescs();
 
             ChosenItemsList = new ObservableCollection<clsItemDesc>();
+
+            dgInvoices.ItemsSource = clsMainLogic.getAllInvoices();
 
         }
 
@@ -85,6 +88,23 @@ namespace CS3280_GroupProject
             new clsItemDesc { sItemCode = sItemCode, sItemDesc = sItemDesc, dCost = dItemCost });
 
             dgChosenItems.ItemsSource = ChosenItemsList;
+
+            dTotalCost = dItemCost + dTotalCost;
+
+            lblTotalCost.Content = dTotalCost.ToString();
+        }
+
+        private void btnSaveInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            clsMainLogic.sInvoiceDate = dpDate.SelectedDate.ToString().Split(' ')[0];
+            clsMainLogic.sTotalCost = dTotalCost.ToString();
+            clsMainLogic.CreateInvoice();
+            lblInvoiceNumber.Content = clsMainLogic.getNewestInvoiceNum();
+        }
+
+        private void btnDeleteItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

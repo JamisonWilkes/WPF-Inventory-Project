@@ -13,21 +13,19 @@
             <TabItem Header="Create Invoice">
                 <Canvas Height="308" Width="700">
                     <ComboBox x:Name="cbItemDesc" Height="23" Width="122" RenderTransformOrigin="0.956,3.03" Canvas.Left="276" Canvas.Top="28" SelectionChanged="cbItemDesc_SelectionChanged" />
-                    <Label Content="Invoice Number" Height="23" Width="100" RenderTransformOrigin="2.325,4.576" Canvas.Left="58" Canvas.Top="30" />
+                    <Label x:Name="lblInvoiceNumber" Content="Invoice Number" Height="23" Width="37" RenderTransformOrigin="2.325,4.576" Canvas.Left="121" Canvas.Top="30" />
                     <TextBox x:Name="txtItemCost" Height="23" TextWrapping="Wrap" Text="Cost of Item Chosen" Width="120" RenderTransformOrigin="4.491,2.144" Canvas.Left="422" Canvas.Top="28" IsReadOnly="True" />
                     <Button x:Name="btnAddItem" Content="Add Item" Height="23" Width="75" RenderTransformOrigin="8.212,0.347" Canvas.Left="547" Canvas.Top="29" Click="btnAddItem_Click"/>
-                    <DataGrid x:Name="dgChosenItems" Height="217" Width="427" RenderTransformOrigin="2.254,2.186" Canvas.Left="58" Canvas.Top="81">
-                        <!--<DataGrid.Columns>
-                            <DataGridTextColumn Header="Item Code" ></DataGridTextColumn>
-                            <DataGridTextColumn Header="Item Description" ></DataGridTextColumn>
-                            <DataGridTextColumn Header="Item Cost" ></DataGridTextColumn>
-                        </DataGrid.Columns>-->
+                    <DataGrid x:Name="dgChosenItems" Height="111" Width="277" RenderTransformOrigin="2.254,2.186" Canvas.Left="58" Canvas.Top="58">
                     </DataGrid>
-                    <Button x:Name="btnDeleteItem" Content="Delete Item" Height="23" Width="75" RenderTransformOrigin="8.601,1.538" Canvas.Left="547" Canvas.Top="169"/>
-                    <Button x:Name="btnSaveInvoice" Content="Save Invoice" Height="23" Width="75" Canvas.Left="547" Canvas.Top="232"/>
-                    <Label Content="Total Cost: $" Height="23" Width="75" Canvas.Left="547" Canvas.Top="107"/>
-                    <Label Content="0.00" Height="23" Width="25" Canvas.Left="615" Canvas.Top="107"/>
-                    <DatePicker Canvas.Left="163" Canvas.Top="28"/>
+                    <Button x:Name="btnDeleteItem" Content="Delete Item" Height="23" Width="75" RenderTransformOrigin="8.601,1.538" Canvas.Left="422" Canvas.Top="101" Click="btnDeleteItem_Click"/>
+                    <Button x:Name="btnSaveInvoice" Content="Save Invoice" Height="23" Width="75" Canvas.Left="422" Canvas.Top="146" Click="btnSaveInvoice_Click"/>
+                    <Label Content="Total Cost: $" Height="23" Width="75" Canvas.Left="422" Canvas.Top="73"/>
+                    <Label x:Name="lblTotalCost" Content="0.00" Height="23" Width="25" Canvas.Left="497" Canvas.Top="73"/>
+                    <DatePicker x:Name="dpDate" Canvas.Left="163" Canvas.Top="28"/>
+                    <DataGrid x:Name="dgInvoices" Height="111" Width="277" RenderTransformOrigin="2.254,2.186" Canvas.Left="58" Canvas.Top="187"/>
+                    <Button x:Name="btnEditInvoice" Content="Edit Invoice" Canvas.Left="422" Canvas.Top="205" Width="75"/>
+                    <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" Canvas.Left="422" Canvas.Top="246" Width="75"/>
 
                 </Canvas>
             </TabItem>

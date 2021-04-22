@@ -16,10 +16,10 @@ namespace CS3280_GroupProject.Main
         /// </summary>
         /// <param name="sInvoiceID">The InvoiceID for the invoice to retrieve all data.</param>
         /// <returns>All data for the given invoice.</returns>
-        public string SelectInvoiceData(string sInvoiceID)
+        public string getInvoices()
 
         {
-            string sSQL = "SELECT * FROM Invoices WHERE InvoiceNum = " + sInvoiceID;
+            string sSQL = "SELECT InvoiceNum, InvoiceDate, TotalCost FROM Invoices";
             return sSQL;
         }
 
@@ -57,9 +57,17 @@ namespace CS3280_GroupProject.Main
         }
 
 
-        public string InsertInvoice()
+        public string InsertInvoice(string sInvoiceDate, string sTotalCost)
         {
-            string sSQL = " ";
+            string sSQL = "INSERT INTO Invoices(InvoiceDate, TotalCost) " +
+            "VALUES('" + sInvoiceDate + "' ,'" + sTotalCost + "') ";
+            
+            return sSQL;
+        }
+
+        public string getNewestInvoice()
+        {
+            string sSQL = "SELECT MAX(InvoiceNum) FROM Invoices";
             return sSQL;
         }
     }
